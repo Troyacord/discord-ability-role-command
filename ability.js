@@ -15,7 +15,10 @@ exports.run = async (client, message, args) => {
   
   const troya = new MessageEmbed().setColor("00FFE7").setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}));
   
-  if(message.channel.id !== '833360173019562014') return message.reply(`bu komut sadece <#833360173019562014> kanalında kullanılabilir.`).then(x => x.delete({timeout: 5000}))
+//KOMUTUN KULLANILACAĞI KANALIN ID'SİNİ BOŞ HANEYE GİRİNİZ.
+  let komutkanal = message.guild.channels.cache.get("") || message.guild.channels.cache.find(c => c.name === "yetenek-chat");
+//EĞER HERYERDE KULLANILABİLİR OLMASINI İSTİYORSANIZ HEMEN AŞAĞIDAKİ SATIRI KARALAYABİLİRSİNİZ.
+  if(message.channel.id !== komutkanal) return message.reply(`bu komut sadece <#${komutkanal}> kanalında kullanılabilir.`).then(x => x.delete({timeout: 5000}))
   if(!args[0]) return message.reply("bir kullanıcı belirtmelisin.").then(x => x.delete({timeout: 5000}))
   let member = message.mentions.members.first() || message.guild.members.cache.get(args[0])
   if(!member) return message.reply("belirtilen kullanıcıyı bulamıyorum.").then(x => x.delete({timeout: 5000}))
