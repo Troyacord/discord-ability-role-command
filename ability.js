@@ -138,6 +138,8 @@ ${emoji.on} <@&${role.telli}> ${kontrol10}
         bekleme.on('collect', async (reaction, user) => {
           const bruh = reaction.emoji.name;
           
+//BURDAN SONRA YAPMANIZ GEREKEN TEK ŞEY HANELERE EMOJİ İSİMLERİNİ GİRMEK OLACAKTIR.
+          
           if(bruh === "1_"){
             reaction.users.remove(message.author.id)
             if(!member.roles.cache.has(role.yazılım)) {
@@ -247,7 +249,7 @@ ${emoji.on} <@&${role.telli}> ${kontrol10}
                 message.channel.send(`${emoji.hayır} **${member.user.tag}** üyesinden **Telli Çalgılar** rolü alındı! ${message.author}`)
                 }
             }
-          
+
           if(bruh === "🚫"){
             mesaj.delete();
             }
